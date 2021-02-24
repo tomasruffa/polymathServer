@@ -1,5 +1,5 @@
 # Polymath Server
-1- Clone server
+1- Clone server with "git clone https://github.com/tomasruffa/polymathServer.git"
 
 # Install dependencies
 2- run "npm install"
