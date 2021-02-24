@@ -7,6 +7,7 @@ const requireAuthenticationList = [
     'POST /api/task/delete',
     'PUT /api/task/update',
     'POST /api/task/search',
+    'POST /api/task/get',
 ];
 
 const requireAuthentication = function(request, response, next) {

@@ -9,6 +9,7 @@ router.route('/search').post(asyncHandler(search));
 router.route('/create').post(asyncHandler(create));
 router.route('/update').put(asyncHandler(update));
 router.route('/delete').post(asyncHandler(taskDelete));
+router.route('/get').post(asyncHandler(getTask));
 
 module.exports = router;
 
@@ -57,6 +58,19 @@ async function taskDelete(req, res) {
     try {
         const taskDelete = await taskController.deleteTask(req.body.id, res.locals.processedToken.id);
         res.json({ deleteSuccess: !!taskDelete })
+
+    } catch (error) {
+        res.status(500);
+        res.json({ error: "Internal error" })
+        return error;
+    }
+}
+
+async function getTask(req, res) {
+    console.log(req.body.description)
+    try {
+        const task = await taskController.getTask(req.body.description);
+        res.json({ task })
 
     } catch (error) {
         res.status(500);

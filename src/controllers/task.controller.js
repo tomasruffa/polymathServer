@@ -74,9 +74,20 @@ async function update(task) {
     }
 }
 
+async function getTask(task) {
+    try {
+        const gettedTask = await Task.find({ description: task });
+        return gettedTask
+    } catch (error) {
+        console.log(error);
+        return error;
+    }
+}
+
 module.exports = {
     create,
     search,
     deleteTask,
-    update
+    update,
+    getTask
 };
